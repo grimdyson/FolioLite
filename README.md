@@ -4,6 +4,8 @@ A free, lightweight, one-page portfolio built with Next.js, TypeScript, and Tail
 
 ![License: Personal Use](https://img.shields.io/badge/license-Personal%20Use-green)
 
+![FolioLite splash](public/splash.jpg)
+
 ## Features
 
 - **Single page, section-based layout** — Hero, About, Experience, Education, Contact, and Open Source sections
