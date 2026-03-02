@@ -65,8 +65,11 @@ const themeInitScript = `(function(){
   try {
     var stored = localStorage.getItem("portfolio-theme");
     var manual = localStorage.getItem("portfolio-theme-manual") === "true";
+    var bgMap = { lighter: "#ffffff", light: "#d4d4d8", dark: "#27272a", darker: "#18181b" };
     if (stored && manual) {
       document.documentElement.dataset.theme = stored;
+      var m2 = document.querySelector('meta[name="theme-color"]');
+      if (m2) m2.setAttribute("content", bgMap[stored] || "#d4d4d8");
       return;
     }
     var now = new Date();
@@ -100,6 +103,11 @@ const themeInitScript = `(function(){
 
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("portfolio-theme", theme);
+
+    // Sync theme-color meta tag with active theme
+    var bgMap = { lighter: "#ffffff", light: "#d4d4d8", dark: "#27272a", darker: "#18181b" };
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", bgMap[theme] || "#d4d4d8");
   } catch(e) {}
 })()`;
 
@@ -115,7 +123,27 @@ export default function RootLayout({
       className={`${manrope.variable} ${roboto.variable} ${robotoMono.variable}`}
     >
       <head>
+        <meta name="theme-color" content="#d4d4d8" />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Tim Dyson",
+              url: "https://timdyson.com",
+              jobTitle: "Designer & Design Engineer",
+              description:
+                "10+ years in product design, design systems, and design engineering. Available for consulting.",
+              email: "mailto:hello@timdyson.com",
+              sameAs: [
+                "https://www.linkedin.com/in/timdyson/",
+                "https://github.com/grimdyson",
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="min-h-screen bg-bg text-text antialiased">
         <a

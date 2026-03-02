@@ -22,6 +22,8 @@ const fallbackTheme: ThemeId = "light";
 function applyTheme(theme: ThemeId) {
   if (typeof document === "undefined") return;
   document.documentElement.dataset.theme = theme;
+  const bgMap: Record<string, string> = { lighter: "#ffffff", light: "#d4d4d8", dark: "#27272a", darker: "#18181b" };
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", bgMap[theme] ?? "#d4d4d8");
 }
 
 export default function ThemeSwitcher() {
