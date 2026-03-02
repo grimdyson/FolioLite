@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope, Roboto, Roboto_Mono } from "next/font/google";
 import StickyChips from "@/components/StickyChips";
+import { Analytics } from "@vercel/analytics/react";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -155,6 +156,7 @@ export default function RootLayout({
         </a>
         <StickyChips />
         {children}
+        <Analytics />
       </body>
     </html>
   );
