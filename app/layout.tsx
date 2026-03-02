@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Manrope, Roboto, Roboto_Mono } from "next/font/google";
 import StickyChips from "@/components/StickyChips";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   subsets: ["latin"],
