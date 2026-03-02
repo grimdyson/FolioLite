@@ -15,6 +15,6 @@ export const openSource = {
   ],
   cta: {
     label: "Check out FolioLite on Github",
-    url: "https://github.com/grimdyson/portfolio",
+    url: "https://github.com/grimdyson/FolioLite",
   },
 };

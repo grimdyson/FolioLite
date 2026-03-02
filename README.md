@@ -18,7 +18,7 @@ A free, lightweight, one-page portfolio built with Next.js, TypeScript, and Tail
 ## Quick Start
 
 ```bash
-git clone https://github.com/grimdyson/portfolio.git
+git clone https://github.com/grimdyson/FolioLite.git
 cd portfolio
 npm install
 npm run dev
