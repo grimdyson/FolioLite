@@ -11,7 +11,7 @@ export const work: WorkEntry[] = [
     company: "Wisetech Global",
     period: "2025 - Present",
     description:
-      "Leading the Unified Design System program that underpins WiseTech’s web framework and future product direction. Setting the visual and system strategy for a multi-brand, multi-product platform, from foundations and token architecture through to patterns, templates, and governance. Partnering closely with engineering and product to ship production-ready standards, with accessibility and theming treated as non-negotiables and AI-ready documentation built in from day one.",
+      "Leading the newest chapter of WTG's design system, underpinning the web framework and future product direction. Setting the visual and system strategy for a multi-brand, multi-product platform, from foundations and token architecture through to patterns, templates, and governance. Partnering closely with engineering and product to ship production-ready standards, with accessibility and theming treated as non-negotiables and AI-ready documentation built in from day one.",
   },
   {
     role: "Design Consultant",
