@@ -1,0 +1,232 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --gray-0: 255 255 255;
+  --gray-50: 250 250 250;
+  --gray-100: 244 244 245;
+  --gray-200: 228 228 231;
+  --gray-300: 212 212 216;
+  --gray-400: 161 161 170;
+  --gray-500: 113 113 122;
+  --gray-600: 82 82 91;
+  --gray-700: 63 63 70;
+  --gray-800: 39 39 42;
+  --gray-900: 24 24 27;
+  --gray-950: 9 9 11;
+
+  --radius: 14px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+}
+
+[data-theme="lighter"] {
+  --bg: var(--gray-0);
+  --surface: var(--gray-50);
+  --text: var(--gray-900);
+  --muted: var(--gray-600);
+  --border: var(--gray-200);
+  --accent: var(--gray-900);
+  --chip-active-text: var(--gray-0);
+}
+
+[data-theme="light"] {
+  --bg: var(--gray-300);
+  --surface: var(--gray-100);
+  --text: var(--gray-800);
+  --muted: var(--gray-600);
+  --border: var(--gray-400);
+  --accent: var(--gray-800);
+  --chip-active-text: var(--gray-0);
+}
+
+[data-theme="dark"] {
+  --bg: var(--gray-800);
+  --surface: var(--gray-700);
+  --text: var(--gray-0);
+  --muted: var(--gray-300);
+  --border: var(--gray-600);
+  --accent: var(--gray-0);
+  --chip-active-text: var(--gray-800);
+}
+
+[data-theme="darker"] {
+  --bg: var(--gray-900);
+  --surface: var(--gray-800);
+  --text: var(--gray-0);
+  --muted: var(--gray-300);
+  --border: var(--gray-700);
+  --accent: var(--gray-0);
+  --chip-active-text: var(--gray-900);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-body, "Roboto", system-ui, sans-serif);
+  font-size: clamp(15px, 1.05vw, 18px);
+  line-height: 1.5;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display, "Manrope", system-ui, sans-serif);
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Composite type utilities (from tokens/type.ts) ── */
+/* Apply a single class to get the full text style.     */
+
+@layer utilities {
+  /* Display – large (contact links) */
+  .type-display-lg {
+    font-family: var(--font-display, "Manrope", system-ui, sans-serif);
+    font-size: 5rem;       /* 80px */
+    line-height: normal;
+    font-weight: 400;
+  }
+
+  /* Display – small (hero heading) */
+  .type-display-sm {
+    font-family: var(--font-display, "Manrope", system-ui, sans-serif);
+    font-size: 2.5rem;     /* 40px */
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  /* Label / overline (section headers) */
+  .type-label {
+    font-family: var(--font-mono, "Roboto Mono", ui-monospace, monospace);
+    font-size: 0.75rem;    /* 12px */
+    line-height: 1.4;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* Tagline / intro slug */
+  .type-tagline {
+    font-family: var(--font-mono, "Roboto Mono", ui-monospace, monospace);
+    font-size: 1rem;       /* 16px */
+    line-height: 1.75;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* Body text (paragraphs) */
+  .type-body {
+    font-family: var(--font-body, "Roboto", system-ui, sans-serif);
+    font-size: 1rem;       /* 16px */
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  /* Body emphasis (job titles) */
+  .type-body-emphasis {
+    font-family: var(--font-body, "Roboto", system-ui, sans-serif);
+    font-size: 1rem;       /* 16px */
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  /* Meta (company, dates) */
+  .type-meta {
+    font-family: var(--font-mono, "Roboto Mono", ui-monospace, monospace);
+    font-size: 1rem;       /* 16px */
+    line-height: 1.75;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.15);
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Theme slider range input ──────────────────────────── */
+input[type="range"].theme-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 100px;
+  outline: none;
+}
+input[type="range"].theme-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgb(var(--text));
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+input[type="range"].theme-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(var(--text));
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+input[type="range"].theme-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 100px;
+  background: transparent;
+}
+
+/* ── Scroll-reveal: respect reduced-motion ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  /* Instantly reveal all Reveal-wrapped elements */
+  * {
+    transition-duration: 0ms !important;
+  }
+}
