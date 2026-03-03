@@ -1,6 +1,6 @@
 # FolioLite
 
-A free, lightweight, one-page portfolio built with Next.js, TypeScript, and Tailwind CSS. No CMS, no subscriptions — just edit a few content files, push, and you're live.
+A free, lightweight, one-page portfolio built with Next.js, TypeScript, and Tailwind CSS. No CMS, no subscriptions. Just edit a few content files, push, and you're live.
 
 ![License: Personal Use](https://img.shields.io/badge/license-Personal%20Use-green)
 
@@ -8,13 +8,13 @@ A free, lightweight, one-page portfolio built with Next.js, TypeScript, and Tail
 
 ## Features
 
-- **Single page, section-based layout** — Hero, About, Experience, Education, Contact, and Open Source sections
-- **Four adaptive themes** — lighter, light, dark, darker — with a slider in the sticky nav
-- **Time-based auto-theming** — theme picks itself based on your local sunrise/sunset on first visit
-- **Scroll-reveal animations** — subtle fade + slide inspired by linear.app, with `prefers-reduced-motion` support
-- **Sticky navigation** — pills-style nav with a sliding indicator, responsive for mobile and desktop
-- **Accessibility out of the box** — skip-to-content link, semantic landmarks, descriptive alt text, focus states, aria labels
-- **SEO ready** — Open Graph / Twitter Card meta, JSON-LD structured data, robots.txt, sitemap.xml, canonical URL, favicons + web manifest
+- **Single page, section-based layout:** Hero, About, Experience, Education, Contact, and Open Source sections
+- **Four adaptive themes** (lighter, light, dark, darker) with a slider in the sticky nav
+- **Time-based auto-theming** that picks itself based on your local sunrise/sunset on first visit
+- **Scroll-reveal animations** with subtle fade + slide, inspired by linear.app. Respects `prefers-reduced-motion`
+- **Sticky navigation** with a pills-style indicator, responsive for mobile and desktop
+- **Accessibility out of the box:** skip-to-content link, semantic landmarks, descriptive alt text, focus states, aria labels
+- **SEO ready:** Open Graph / Twitter Card meta, JSON-LD structured data, robots.txt, sitemap.xml, canonical URL, favicons + web manifest
 - **Zero runtime dependencies** beyond Next.js, React, and Tailwind
 
 ## Quick Start
@@ -28,11 +28,32 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Make It Yours
+## Setting up with AI
+
+The fastest way to personalise FolioLite is with an AI assistant. **[`SETUP.md`](SETUP.md)** is a step-by-step instruction file written for AI agents. It lists every file, field, and asset you need to update, in order, with exact paths and example values.
+
+**How to use it:**
+
+1. Open your AI tool of choice (GitHub Copilot, Cursor, Claude, ChatGPT, etc.)
+2. Point it at `SETUP.md` (or paste the contents into a chat)
+3. It will walk you through each section: profile, work history, contact info, metadata, SEO, assets, and deployment
+4. You answer its questions, it makes the edits
+
+Or copy-paste this prompt to get started:
+
+```
+I just cloned FolioLite. Read SETUP.md in the repo root, then walk me
+through each step to personalise it with my details. Ask me for my info
+one section at a time and make the edits directly.
+```
+
+> You can also follow the same steps manually. `SETUP.md` works just as well as a human-readable checklist.
+
+## Make It Yours (manual reference)
 
 ### 1. Content
 
-All content lives in plain TypeScript objects — no CMS, no markdown:
+All content lives in plain TypeScript objects. No CMS, no markdown:
 
 | File | What it controls |
 |------|-----------------|
@@ -48,7 +69,7 @@ These files contain personal info you'll want to replace:
 
 | File | What to update |
 |------|---------------|
-| `app/layout.tsx` | `metadata` — title, description, Open Graph, Twitter Card, JSON-LD (name, job title, email, social links) |
+| `app/layout.tsx` | `metadata` object: title, description, Open Graph, Twitter Card, JSON-LD (name, job title, email, social links) |
 | `app/robots.ts` | Your domain in the sitemap URL |
 | `app/sitemap.ts` | Your domain |
 | `public/site.webmanifest` | App name |
@@ -57,10 +78,10 @@ These files contain personal info you'll want to replace:
 
 | File | What to replace |
 |------|----------------|
-| `public/illustrations/avatar.png` | Your avatar — used to generate favicons and OG image |
+| `public/illustrations/avatar.png` | Your avatar, used to generate favicons and OG image |
 | `public/illustrations/v60.svg` | About section illustration |
 | `public/illustrations/Banan.svg` | Contact section illustration |
-| `public/og-image.png` | Social sharing preview (1200×630) — regenerate from your avatar or replace directly |
+| `public/og-image.png` | Social sharing preview (1200×630). Regenerate from your avatar or replace directly |
 | `app/favicon.ico` | 32×32 browser tab icon |
 | `app/apple-icon.png` | 180×180 iOS home screen icon |
 | `public/icon-192.png` | 192×192 PWA icon |
@@ -107,7 +128,7 @@ Four themes controlled by CSS custom properties on `data-theme`:
 - **dark** — dark zinc
 - **darker** — near-black
 
-On first load, an inline blocking script estimates your local sunrise/sunset and picks a theme. Users can override manually via the slider — the choice persists in localStorage.
+On first load, an inline blocking script estimates your local sunrise/sunset and picks a theme. Users can override manually via the slider, and the choice persists in localStorage.
 
 Token values live in `app/globals.css` under each `[data-theme="..."]` block.
 
